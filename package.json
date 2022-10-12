@@ -1,0 +1,11 @@
+{
+  "name": "twitch_list_streams",
+  "private": true,
+  "scripts": {
+    "build": "pnpx serve"
+  },
+  "author": "ex_ode",
+  "license": "MIT",
+  "packageManager": "pnpm@7.13.4",
+  "type": "module"
+}

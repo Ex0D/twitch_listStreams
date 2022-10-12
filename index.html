@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Streams</title>
+    <link rel="shortcut icon" href="./public/assets/twitch_logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./public/css/style.css">
+
+</head>
+<body>
+    <div class="sidebar hide">
+        <div class="sidebar-button" id="sidebar-toggle"></div>
+        <div class="sidebar-content">
+            <div class="menu" id="menu">
+                <div class="row">
+                    <label for="lang">Lang</label>
+                    <input type="text" id="lang" class="lang" value="" maxlength="2" />
+                </div>
+                
+                <div class="row">
+                    <label for="game_id">Game ID</label>
+                    <input type="text" id="game_id" class="game_id" value="" />
+                </div>
+
+                <div class="row">
+                    <label for="limit">Limit</label>
+                    <input type="number" id="limit" class="limit" value="" />
+                </div>
+
+                <div class="row">
+                    <label for="lang">Client ID</label>
+                    <input type="text" id="client_id" class="client_id" value="" />
+                </div>
+
+                <div class="row">
+                    <label for="lang">Token</label>
+                    <input type="text" id="token" class="token" value="" />
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button type="button" id="update-toggle">START UPDATE</button>
+        </div>
+        
+        <br />
+        <hr />
+        <br />
+
+        <label>Block List</label>
+        <ul class="list" id="block-list"></ul>
+
+        <br />
+        <hr />
+        <br />
+
+    </div>
+
+<div id="app"></div>
+<script type="module" src="./public/js/main.js"></script>
+</body>
+</html>
