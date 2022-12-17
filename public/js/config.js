@@ -2,9 +2,9 @@ export const PLAYER = 'https://player.twitch.tv/?muted=true&channel';
 export const URL_TWITCH_API = 'https://api.twitch.tv/helix/streams';
 export const TIME_TO_UPDATE = 8500;
 
-export const config = 
+export const config =
 {
-    values: 
+    values:
     {
         game_id:
         {
@@ -12,13 +12,13 @@ export const config =
             default: '21779'
         },
 
-        lang: 
+        lang:
         {
             value: '',
             default: 'fr'
         },
-        
-        limit: 
+
+        limit:
         {
             value: '',
             default: '10'
@@ -34,15 +34,15 @@ export const config =
     streams: []
 };
 
-export function updateConfig(id, value) 
+export function updateConfig(id, value)
 {
     config.values[id].value = value;
     saveConfig();
 }
 
-export function saveConfig() 
+export function saveConfig()
 {
-    const { values, lists } = config;    
+    const { values, lists } = config;
 
     Object.keys(values).forEach(id =>
     {
@@ -55,10 +55,10 @@ export function saveConfig()
     });
 }
 
-export function loadSettings() 
+export function loadSettings()
 {
     const { values, lists } = config;
-    
+
     Object.keys(values).forEach(id =>
     {
         const value = localStorage.getItem(id) || values[id].default;

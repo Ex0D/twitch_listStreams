@@ -1,11 +1,11 @@
 import { config, URL_TWITCH_API } from "./config.js";
 
-export async function getStreamList(game_ids, langs, limit) 
+export async function getStreamList(game_ids, langs, limit)
 {
     const clientID = document.getElementById('client_id').value;
     const token = document.getElementById('token').value;
     const strIds = game_ids.split(';').reduce((acc, id) => (acc += `&game_id=${id}`), '');
-    const strLangs = langs.split(';').reduce((acc, lang) => (acc += `&language=${lang}`), '');    
+    const strLangs = langs.split(';').reduce((acc, lang) => (acc += `&language=${lang}`), '');
     const intLimit = Number(limit) + config.lists.block.length;
     const params = `?first=${intLimit}${strIds}${strLangs}`;
 
@@ -27,23 +27,13 @@ export async function getStreamList(game_ids, langs, limit)
         mode: 'cors'
     });
 
-    if(fetchTwitchAPI.ok)
-    {
-        return fetchTwitchAPI.json();
-    }
-    else
-    {
-        alert('API ERROR');
-        return window.location = '/index.html';
-    }
-
-    // fetchTwitchAPI.ok ? fetchTwitchAPI.json() : alert('API ERROR')
+    fetchTwitchAPI.ok ? fetchTwitchAPI.json() : alert('API ERROR')
 }
 
-export function diffListStreams(oldListStreams, listStreams) 
+export function diffListStreams(oldListStreams, listStreams)
 {
     const newListStreams = listStreams.data;
-    
+
     const result = 
     {
         add: [],

@@ -1,6 +1,6 @@
 import { PLAYER } from "./config.js";
 
-export function templateListItem(username) 
+export function templateListItem(username)
 {
     return `
     <li class="list--item">
@@ -16,7 +16,7 @@ export function templateListItem(username)
     `;
 }
 
-export function templateStream(i) 
+export function templateStream(i)
 {
     return `
         <div class="stream-menu">
@@ -42,5 +42,5 @@ export function templateStream(i)
             allowfullscreen="true"
             src="${PLAYER}=${i.user_name}&parent=localhost"
         ></iframe>
-    `   
+    `
 }

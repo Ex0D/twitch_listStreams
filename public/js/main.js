@@ -16,7 +16,7 @@ window.onload = () =>
 
     document.querySelector('#update-toggle').addEventListener('click', updateToggle);
 
-    function renderBlockList() 
+    function renderBlockList()
     {
         const { lists } = config;
         document.querySelector(`#block-list`).innerHTML = '';
@@ -26,7 +26,6 @@ window.onload = () =>
             document.querySelector(`#block-list`).innerHTML += templateListItem(i);
         });
 
-        // Test move ahead
         lists.block.forEach(i =>
         {
             document.querySelector(`${i}_unblock`).addEventListener('click', () =>
@@ -36,11 +35,11 @@ window.onload = () =>
         });
     }
 
-    function renderStreams(streams) 
+    function renderStreams(streams)
     {
         const app = document.querySelector('#app');
         const { favorite, block } = config.lists;
-        
+
         streams.forEach((stream, i) =>
         {
             if(i <= config.values.limit.value)
@@ -80,21 +79,21 @@ window.onload = () =>
         });
     }
 
-    function blockStream(username) 
+    function blockStream(username)
     {
         config.lists.block.push(username);
         renderBlockList();
         saveConfig();
     }
 
-    function unBlockStream(username) 
+    function unBlockStream(username)
     {
         config.lists.block.splice(config.lists.block.findIndex(v => v === username), 1);
         renderBlockList();
-        saveConfig();   
+        saveConfig();
     }
 
-    function favoriteStream(username) 
+    function favoriteStream(username)
     {
         if(config.lists.favorite.findIndex(v => v === username) === -1)
         {
@@ -109,12 +108,12 @@ window.onload = () =>
         saveConfig();
     }
 
-    function unFavoriteStream(username) 
+    function unFavoriteStream(username)
     {
-        config.lists.favorite.splice(config.lists.favorite.findIndex(v => v === username), 1);    
+        config.lists.favorite.splice(config.lists.favorite.findIndex(v => v === username), 1);
     }
 
-    function updateToggle() 
+    function updateToggle()
     {
         const start = document.querySelector('#update-toggle');
         if (start.innerText === 'STOP UPDATE')
@@ -130,7 +129,7 @@ window.onload = () =>
         }
     }
 
-    async function update() 
+    async function update()
     {
         const { game_id, lang, limit } = config.values;
         const { streams } = config;
@@ -147,12 +146,12 @@ window.onload = () =>
         saveConfig();
     }
 
-    function addStreams(streams) 
+    function addStreams(streams)
     {
         renderStreams(streams);
     }
 
-    function delStreams(streams) 
+    function delStreams(streams)
     {
         streams.forEach(stream =>
         {
@@ -161,7 +160,7 @@ window.onload = () =>
         removeStreams(streams);
     }
 
-    function removeStreams(streams) 
+    function removeStreams(streams)
     {
         streams.forEach(stream =>
         {
